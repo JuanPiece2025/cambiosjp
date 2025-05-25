@@ -392,12 +392,12 @@
             <h2 class="section-title">¿Cómo funciona CambiosJP?</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <h3>1. Envía tu Moneda</h3>
-                    <p>Contacta con nosotros y especifica cuánto de tu moneda deseas cambiar.</p>
+                    <h3>1. Envía tu Moneda JP</h3>
+                    <p>Contacta con nosotros y especifica cuánto de tu moneda deseas cambiar o recibir.</p>
                 </div>
                 <div class="feature-item">
                     <h3>2. Elige tu Destino</h3>
-                    <p>Indícanos a qué plataforma y divisa deseas recibir tus fondos: Zinli, PayPal, USDT en Binance etc.</p>
+                    <p>Indícanos a qué plataforma y divisa deseas recibir tus fondos: Zinli, PayPal, USDT en Binance, bolívares a tu banco, etc.</p>
                 </div>
                 <div class="feature-item">
                     <h3>3. Recibe tus Fondos</h3>
@@ -431,62 +431,13 @@
         <div class="modal-content">
             <button class="modal-close-btn" id="closeModalBtn">&times;</button> <h2>Elige tu método de pago</h2>
             <div class="modal-options">
-                <button onclick="location.href='binance.html'">
+                <button onclick="location.href='pago.html'">
                     <img src="https://public.bnbstatic.com/image/cms/blog/20240531/6422bedf-f72e-44e8-be9e-bf77d329bdbd.png" alt="Binance Banner">
                     Binance
                 </button>
-                <button onclick="location.href='paypal.html'">
+                <button onclick="location.href='pago.html'">
                     <img src="https://www.paypalobjects.com/webstatic/mktg/logo-center/PP_Acceptance_Marks_for_LogoCenter_266x142.png" alt="PayPal Banner">
                     PayPal
                 </button>
-                <button onclick="location.href='zinli.html'">
+                <button onclick="location.href='pago.html'">
                     <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/13769662/2580219226.jpg" alt="Zinli Banner">
-                    Zinli
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Obtener referencias a los elementos HTML
-        const startTransactionBtn = document.getElementById('startTransactionBtn');
-        const transactionModal = document.getElementById('transactionModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-
-        // Evento para abrir el modal cuando se hace clic en el botón "Empezar Transacción"
-        if (startTransactionBtn) { // Asegurarse de que el botón exista antes de añadir el listener
-            startTransactionBtn.addEventListener('click', () => {
-                transactionModal.classList.add('active'); // Añade la clase 'active' para mostrar el modal
-                document.body.style.overflow = 'hidden'; // Evita el scroll en el body cuando el modal está abierto
-            });
-        }
-
-        // Evento para cerrar el modal cuando se hace clic en el botón de cerrar (X)
-        if (closeModalBtn) { // Asegurarse de que el botón exista
-            closeModalBtn.addEventListener('click', () => {
-                transactionModal.classList.remove('active'); // Remueve la clase 'active' para ocultar el modal
-                document.body.style.overflow = ''; // Restaura el scroll del body
-            });
-        }
-
-        // Evento para cerrar el modal si se hace clic fuera del contenido del modal
-        if (transactionModal) { // Asegurarse de que el modal exista
-            transactionModal.addEventListener('click', (event) => {
-                // Si el clic ocurrió directamente sobre el overlay (no dentro del modal-content)
-                if (event.target === transactionModal) {
-                    transactionModal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-
-        // Opcional: Cerrar el modal con la tecla Escape
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && transactionModal && transactionModal.classList.contains('active')) {
-                transactionModal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    </script>
-</body>
-</html>

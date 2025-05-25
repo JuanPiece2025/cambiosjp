@@ -441,3 +441,52 @@
                 </button>
                 <button onclick="location.href='pago.html'">
                     <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/13769662/2580219226.jpg" alt="Zinli Banner">
+                    Zinli
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtener referencias a los elementos HTML
+        const startTransactionBtn = document.getElementById('startTransactionBtn');
+        const transactionModal = document.getElementById('transactionModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        // Evento para abrir el modal cuando se hace clic en el botón "Empezar Transacción"
+        if (startTransactionBtn) { // Asegurarse de que el botón exista antes de añadir el listener
+            startTransactionBtn.addEventListener('click', () => {
+                transactionModal.classList.add('active'); // Añade la clase 'active' para mostrar el modal
+                document.body.style.overflow = 'hidden'; // Evita el scroll en el body cuando el modal está abierto
+            });
+        }
+
+        // Evento para cerrar el modal cuando se hace clic en el botón de cerrar (X)
+        if (closeModalBtn) { // Asegurarse de que el botón exista
+            closeModalBtn.addEventListener('click', () => {
+                transactionModal.classList.remove('active'); // Remueve la clase 'active' para ocultar el modal
+                document.body.style.overflow = ''; // Restaura el scroll del body
+            });
+        }
+
+        // Evento para cerrar el modal si se hace clic fuera del contenido del modal
+        if (transactionModal) { // Asegurarse de que el modal exista
+            transactionModal.addEventListener('click', (event) => {
+                // Si el clic ocurrió directamente sobre el overlay (no dentro del modal-content)
+                if (event.target === transactionModal) {
+                    transactionModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Opcional: Cerrar el modal con la tecla Escape
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && transactionModal && transactionModal.classList.contains('active')) {
+                transactionModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>

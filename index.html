@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CambiosJP - Tu Intercambio de Divisas Digitales Confiable</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff; /* Azul vibrante */
+            --secondary-color: #6c757d; /* Gris para textos secundarios */
+            --accent-color: #28a745; /* Verde para acciones positivas */
+            --background-light: #f8f9fa; /* Fondo claro */
+            --text-dark: #343a40; /* Texto oscuro */
+            --border-color: #dee2e6; /* Borde suave */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background: linear-gradient(to right, var(--primary-color), #6bb1ff);
+            color: #ffffff;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 0 0 15px 15px; /* Esquinas redondeadas abajo */
+            position: relative;
+            z-index: 1; /* Aseguramos que el héroe esté por debajo del modal */
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em; /* Ajuste para el botón principal */
+        }
+
+        .btn:hover {
+            background-color: #218838; /* Verde más oscuro */
+            transform: translateY(-2px);
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .features-grid { /* Eliminada la referencia a .platforms-grid aquí */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-item { /* Eliminada la referencia a .platform-item aquí */
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover { /* Eliminada la referencia a .platform-item:hover aquí */
+            transform: translateY(-5px);
+        }
+
+        .feature-item h3 { /* Eliminada la referencia a .platform-item h3 aquí */
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-item p { /* Eliminada la referencia a .platform-item p aquí */
+            color: var(--secondary-color);
+        }
+
+        /* Eliminados los estilos específicos para .platform-item img y .platform-item:hover img */
+
+        .call-to-action {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 15px 15px 0 0; /* Esquinas redondeadas arriba */
+            margin-top: 60px;
+        }
+
+        .call-to-action h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .call-to-action p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        footer nav ul li {
+            margin: 0 15px;
+        }
+
+        footer nav ul li a {
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        /* --- Estilos para el MODAL (Pop-up) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente oscuro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Asegura que esté por encima de todo */
+            opacity: 0; /* Oculto por defecto */
+            visibility: hidden; /* Oculto por defecto */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            width: 90%;
+            max-width: 380px; /* Reduced max-width of the modal itself */
+            transform: translateY(-50px); /* Para la animación de entrada */
+            transition: transform 0.3s ease;
+            position: relative; /* Para el botón de cerrar */
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0); /* Posición final al abrir */
+        }
+
+        .modal-content h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .modal-options button {
+            display: flex; /* Usamos flexbox para alinear imagen y texto */
+            flex-direction: column; /* Cambiado a columna para apilar imagen y texto */
+            align-items: center; /* Centra horizontalmente en el eje transversal */
+            justify-content: center; /* Centra verticalmente en el eje principal */
+            width: 100%;
+            padding: 10px; /* Slightly reduced overall padding */
+            margin-bottom: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            font-family: 'Poppins', sans-serif;
+            gap: 5px; /* Reduced gap between image and text */
+        }
+
+        .modal-options button:last-child {
+            margin-bottom: 0;
+        }
+
+        .modal-options button img {
+            width: 100%; /* Las imágenes ocuparán el 100% del ancho del botón */
+            max-width: 200px; /* Significantly reduced max-width for the banner image */
+            height: 60px; /* Set a fixed height for a more consistent banner look */
+            object-fit: contain; /* Ensure the image fits within the defined dimensions */
+            filter: grayscale(0%); /* Quita el filtro de escala de grises inicial */
+            transition: transform 0.3s ease;
+        }
+
+        .modal-options button:hover {
+            background-color: var(--primary-color);
+            color: white; /* Cambiar color del texto al pasar el ratón */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+            border-color: var(--primary-color); /* Cambiar borde al hover */
+        }
+        
+        .modal-options button:hover img {
+            transform: scale(1.02); /* Subtle zoom on hover */
+        }
+
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close-btn:hover {
+            color: var(--text-dark);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.5em;
+            }
+
+            nav {
+                display: none; /* Simplificado para móviles, se recomienda un menú hamburguesa real */
+            }
+
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .features-grid { /* Eliminada la referencia a .platforms-grid aquí */
+                grid-template-columns: 1fr;
+            }
+
+            .call-to-action h2 {
+                font-size: 2em;
+            }
+
+            .modal-content {
+                padding: 20px;
+                max-width: 90%; /* Ensure it's responsive on smaller screens */
+            }
+            .modal-options button img {
+                max-width: 150px; /* Adjust banner size for smaller screens if needed */
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">CambiosJP</a>
+            <nav>
+                <ul>
+                    <li><a href="#como-funciona">Cómo Funciona</a></li>
+                    <li><a href="#seguridad">Seguridad</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Convierte Tu Moneda Digital a lo que Necesites</h1>
+            <p>En CambiosJP, facilitamos el intercambio de tu moneda digital a saldos en **Zinli, PayPal, Binance** y más, de forma rápida, segura y con las mejores tasas.</p>
+            
+            <button id="startTransactionBtn" class="btn">Empezar Transacción</button>
+        </div>
+    </section>
+
+    <section id="como-funciona" class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">¿Cómo funciona CambiosJP?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>1. Envía tu Moneda JP</h3>
+                    <p>Contacta con nosotros y especifica cuánto de tu moneda deseas cambiar o recibir.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>2. Elige tu Destino</h3>
+                    <p>Indícanos a qué plataforma y divisa deseas recibir tus fondos: Zinli, PayPal, USDT en Binance, bolívares a tu banco, etc.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>3. Recibe tus Fondos</h3>
+                    <p>Una vez verificada la transacción, te enviaremos el equivalente a tu cuenta destino de forma ágil y segura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="seguridad" class="call-to-action">
+        <div class="container">
+            <h2>Tu Seguridad es Nuestra Prioridad</h2>
+            <p>En CambiosJP, utilizamos los más altos estándares de seguridad para proteger tus transacciones y tu información personal. Opera con total confianza.</p>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <p>&copy; 2025 CambiosJP. Todos los derechos reservados.</p>
+            <nav>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <div id="transactionModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="closeModalBtn">&times;</button> <h2>Elige tu método de pago</h2>
+            <div class="modal-options">
+                <button onclick="location.href='pago.html'">
+                    <img src="https://public.bnbstatic.com/image/cms/blog/20240531/6422bedf-f72e-44e8-be9e-bf77d329bdbd.png" alt="Binance Banner">
+                    Binance
+                </button>
+                <button onclick="location.href='pago.html'">
+                    <img src="https://www.paypalobjects.com/webstatic/mktg/logo-center/PP_Acceptance_Marks_for_LogoCenter_266x142.png" alt="PayPal Banner">
+                    PayPal
+                </button>
+                <button onclick="location.href='pago.html'">
+                    <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/13769662/2580219226.jpg" alt="Zinli Banner">
+                    Zinli
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtener referencias a los elementos HTML
+        const startTransactionBtn = document.getElementById('startTransactionBtn');
+        const transactionModal = document.getElementById('transactionModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        // Evento para abrir el modal cuando se hace clic en el botón "Empezar Transacción"
+        if (startTransactionBtn) { // Asegurarse de que el botón exista antes de añadir el listener
+            startTransactionBtn.addEventListener('click', () => {
+                transactionModal.classList.add('active'); // Añade la clase 'active' para mostrar el modal
+                document.body.style.overflow = 'hidden'; // Evita el scroll en el body cuando el modal está abierto
+            });
+        }
+
+        // Evento para cerrar el modal cuando se hace clic en el botón de cerrar (X)
+        if (closeModalBtn) { // Asegurarse de que el botón exista
+            closeModalBtn.addEventListener('click', () => {
+                transactionModal.classList.remove('active'); // Remueve la clase 'active' para ocultar el modal
+                document.body.style.overflow = ''; // Restaura el scroll del body
+            });
+        }
+
+        // Evento para cerrar el modal si se hace clic fuera del contenido del modal
+        if (transactionModal) { // Asegurarse de que el modal exista
+            transactionModal.addEventListener('click', (event) => {
+                // Si el clic ocurrió directamente sobre el overlay (no dentro del modal-content)
+                if (event.target === transactionModal) {
+                    transactionModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Opcional: Cerrar el modal con la tecla Escape
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && transactionModal && transactionModal.classList.contains('active')) {
+                transactionModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>

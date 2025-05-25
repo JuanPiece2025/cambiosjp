@@ -136,14 +136,14 @@
             font-weight: 600;
         }
 
-        .features-grid, .platforms-grid {
+        .features-grid { /* Eliminada la referencia a .platforms-grid aquí */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 30px;
         }
 
-        .feature-item, .platform-item {
+        .feature-item { /* Eliminada la referencia a .platform-item aquí */
             background-color: #ffffff;
             padding: 30px;
             border-radius: 10px;
@@ -152,30 +152,21 @@
             transition: transform 0.3s ease;
         }
 
-        .feature-item:hover, .platform-item:hover {
+        .feature-item:hover { /* Eliminada la referencia a .platform-item:hover aquí */
             transform: translateY(-5px);
         }
 
-        .feature-item h3, .platform-item h3 {
+        .feature-item h3 { /* Eliminada la referencia a .platform-item h3 aquí */
             font-size: 1.5em;
             margin-bottom: 15px;
             color: var(--primary-color);
         }
 
-        .feature-item p, .platform-item p {
+        .feature-item p { /* Eliminada la referencia a .platform-item p aquí */
             color: var(--secondary-color);
         }
 
-        .platform-item img {
-            max-width: 80px;
-            margin-bottom: 15px;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-
-        .platform-item:hover img {
-            filter: grayscale(0%);
-        }
+        /* Eliminados los estilos específicos para .platform-item img y .platform-item:hover img */
 
         .call-to-action {
             background-color: var(--primary-color);
@@ -354,7 +345,7 @@
                 font-size: 1.8em;
             }
 
-            .features-grid, .platforms-grid {
+            .features-grid { /* Eliminada la referencia a .platforms-grid aquí */
                 grid-template-columns: 1fr;
             }
 
@@ -380,7 +371,6 @@
             <nav>
                 <ul>
                     <li><a href="#como-funciona">Cómo Funciona</a></li>
-                    <li><a href="#plataformas">Plataformas</a></li>
                     <li><a href="#seguridad">Seguridad</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
@@ -412,34 +402,6 @@
                 <div class="feature-item">
                     <h3>3. Recibe tus Fondos</h3>
                     <p>Una vez verificada la transacción, te enviaremos el equivalente a tu cuenta destino de forma ágil y segura.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="plataformas" class="section-padding" style="background-color: #e9ecef;">
-        <div class="container text-center">
-            <h2 class="section-title">Operamos con tus plataformas favoritas</h2>
-            <div class="platforms-grid">
-                <div class="platform-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Zinli_Logo.png/640px-Zinli_Logo.png" alt="Zinli Logo">
-                    <h3>Zinli</h3>
-                    <p>Transfiere y recibe dólares fácil.</p>
-                </div>
-                <div class="platform-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/2560px-PayPal.svg.png" alt="PayPal Logo">
-                    <h3>PayPal</h3>
-                    <p>Pagos y cobros internacionales.</p>
-                </div>
-                <div class="platform-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Binance_logo.svg/2560px-Binance_logo.svg.png" alt="Binance Logo">
-                    <h3>Binance (USDT)</h3>
-                    <p>Intercambio de criptomonedas líder.</p>
-                </div>
-                <div class="platform-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Banco_de_Venezuela_logo.svg/2560px-Banco_de_Venezuela_logo.svg.png" alt="Banco de Venezuela Logo">
-                    <h3>Bancos Nacionales</h3>
-                    <p>Bolívares a tu cuenta local.</p>
                 </div>
             </div>
         </div>

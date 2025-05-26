@@ -50,12 +50,19 @@
             align-items: center;
         }
 
+        /* Estilo para el contenedor del logo (ahora una imagen) */
         .logo {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
+            text-decoration: none; /* Quita el subrayado del enlace */
+            display: flex; /* Permite controlar la alineación de la imagen dentro */
+            align-items: center; /* Centra verticalmente la imagen */
+            height: 40px; /* Establece una altura fija para el contenedor del logo */
         }
+
+        .logo img {
+            max-height: 100%; /* La imagen ocupará el 100% de la altura del contenedor del logo */
+            width: auto; /* Mantiene la proporción de la imagen */
+        }
+
 
         nav ul {
             list-style: none;
@@ -325,7 +332,7 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .logo {
-                font-size: 1.5em;
+                font-size: 1.5em; /* Este estilo ahora afecta al contenedor del logo, no al texto */
             }
 
             nav {
@@ -366,7 +373,9 @@
 <body>
     <header>
         <div class="container">
-            <a href="index.html" class="logo">CambiosJP</a>
+            <a href="index.html" class="logo">
+                <img src="fotos/banner.png" alt="CambiosJP">
+            </a>
             <nav>
                 <ul>
                     <li><a href="como_funciona.html">Cómo Funciona</a></li>
@@ -386,7 +395,8 @@
         </div>
     </section>
 
-    <section id="como-funciona-section" class="section-padding"> <div class="container text-center">
+    <section id="como-funciona-section" class="section-padding"> 
+        <div class="container text-center">
             <h2 class="section-title">¿Cómo funciona CambiosJP?</h2>
             <div class="features-grid">
                 <div class="feature-item">
@@ -405,13 +415,15 @@
         </div>
     </section>
 
-    <section id="seguridad-section" class="call-to-action"> <div class="container">
+    <section id="seguridad-section" class="call-to-action"> 
+        <div class="container">
             <h2>Tu Seguridad es Nuestra Prioridad</h2>
             <p>En CambiosJP, utilizamos los más altos estándares de seguridad para proteger tus transacciones y tu información personal. Opera con total confianza.</p>
         </div>
     </section>
 
-    <footer id="contacto-section"> <div class="container">
+    <footer id="contacto-section"> 
+        <div class="container">
             <p>&copy; 2025 CambiosJP. Todos los derechos reservados.</p>
             <nav>
                 <ul>
@@ -425,7 +437,8 @@
 
     <div id="transactionModal" class="modal-overlay">
         <div class="modal-content">
-            <button class="modal-close-btn" id="closeModalBtn">&times;</button> <h2>Elige tu método de pago</h2>
+            <button class="modal-close-btn" id="closeModalBtn">&times;</button> 
+            <h2>Elige tu método de pago</h2>
             <div class="modal-options">
                 <button onclick="location.href='pago.html'">
                     <img src="https://public.bnbstatic.com/image/cms/blog/20240531/6422bedf-f72e-44e8-be9e-bf77d329bdbd.png" alt="Binance Banner">

@@ -54,11 +54,17 @@
             align-items: center;
         }
 
+        /* Estilo para el contenedor del logo (ahora una imagen) */
         .logo {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
+            text-decoration: none; /* Quita el subrayado del enlace */
+            display: flex; /* Permite controlar la alineación de la imagen dentro */
+            align-items: center; /* Centra verticalmente la imagen */
+            height: 40px; /* Establece una altura fija para el contenedor del logo */
+        }
+
+        .logo img {
+            max-height: 100%; /* La imagen ocupará el 100% de la altura del contenedor del logo */
+            width: auto; /* Mantiene la proporción de la imagen */
         }
 
         nav ul {
@@ -202,7 +208,9 @@
 <body>
     <header>
         <div class="container">
-            <a href="index.html" class="logo">CambiosJP</a>
+            <a href="index.html" class="logo">
+                <img src="fotos/banner.png" alt="CambiosJP">
+            </a>
             <nav>
                 <ul>
                     <li><a href="como_funciona.html">Cómo Funciona</a></li>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo Funciona - CambiosJP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff; /* Azul vibrante */
+            --secondary-color: #6c757d; /* Gris para textos secundarios */
+            --accent-color: #28a745; /* Verde para acciones positivas */
+            --background-light: #f8f9fa; /* Fondo claro */
+            --text-dark: #343a40; /* Texto oscuro */
+            --border-color: #dee2e6; /* Borde suave */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            min-height: 100vh; /* Asegura que el footer se pegue abajo si el contenido es corto */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            flex-shrink: 0; /* Evita que el header se encoja */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .main-content {
+            flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .content-block {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .content-block h3 {
+            font-size: 1.8em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .content-block p {
+            font-size: 1.1em;
+            color: var(--text-dark);
+            text-align: justify;
+        }
+
+        .content-block ul {
+            list-style-type: decimal; /* Números para los pasos */
+            margin-left: 25px;
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: var(--text-dark);
+        }
+
+        .content-block ul li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+            flex-shrink: 0; /* Evita que el footer se encoja */
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        footer nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer nav ul li a {
+            color: #ffffff;
+            font-weight: 400;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            .section-title {
+                font-size: 2em;
+            }
+            .content-block {
+                padding: 20px;
+            }
+            .content-block h3 {
+                font-size: 1.5em;
+            }
+            .content-block p, .content-block ul li {
+                font-size: 1em;
+            }
+            footer nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">CambiosJP</a>
+            <nav>
+                <ul>
+                    <li><a href="como_funciona.html">Cómo Funciona</a></li>
+                    <li><a href="seguridad.html">Seguridad</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="section-title">Así de Fácil Es Cambiar con CambiosJP</h1>
+            
+            <div class="content-block">
+                <h3>Nuestro Proceso Paso a Paso</h3>
+                <p>En CambiosJP, hemos diseñado un proceso sencillo y transparente para que puedas intercambiar tus divisas digitales por otros saldos de manera eficiente y segura.</p>
+                <ul>
+                    <li>**Paso 1: Envío de tu Moneda JP.** Contáctanos a través de nuestros canales oficiales (WhatsApp, Telegram, correo electrónico) e indícanos la cantidad de moneda JP que deseas cambiar. Sé lo más específico posible para agilizar el proceso.</li>
+                    <li>**Paso 2: Elección de tu Destino.** Dinos a qué plataforma y divisa deseas recibir tus fondos. Podemos enviar a Zinli, PayPal, USDT en Binance (TRC20, BEP20, ERC20), directamente a tu cuenta bancaria en bolívares, u otras opciones que podemos coordinar.</li>
+                    <li>**Paso 3: Verificación y Confirmación.** Te proporcionaremos los detalles para el envío de tu moneda JP. Una vez que hayamos confirmado la recepción de tus fondos, te notificaremos inmediatamente.</li>
+                    <li>**Paso 4: Recepción de tus Fondos.** Procesaremos tu solicitud y enviaremos el equivalente a tu cuenta destino de forma ágil y segura. Te enviaremos una confirmación de la transacción una vez completada.</li>
+                </ul>
+                <p>Nuestro equipo está siempre disponible para guiarte en cada paso y resolver cualquier duda que puedas tener. ¡Tu comodidad y seguridad son nuestra prioridad!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CambiosJP. Todos los derechos reservados.</p>
+            <nav>
+                <ul>
+                    <li><a href="terminos_condiciones.html">Términos y Condiciones</a></li>
+                    <li><a href="politica_privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

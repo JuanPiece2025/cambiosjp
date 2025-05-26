@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - CambiosJP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff; /* Azul vibrante */
+            --secondary-color: #6c757d; /* Gris para textos secundarios */
+            --accent-color: #28a745; /* Verde para acciones positivas */
+            --background-light: #f8f9fa; /* Fondo claro */
+            --text-dark: #343a40; /* Texto oscuro */
+            --border-color: #dee2e6; /* Borde suave */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item i { /* Para iconos si los usas, por ejemplo con Font Awesome */
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .contact-item p {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--text-dark);
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+            flex-shrink: 0;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        footer nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer nav ul li a {
+            color: #ffffff;
+            font-weight: 400;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            .section-title {
+                font-size: 2em;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-item {
+                padding: 20px;
+            }
+            .contact-item h3 {
+                font-size: 1.3em;
+            }
+            footer nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">CambiosJP</a>
+            <nav>
+                <ul>
+                    <li><a href="como_funciona.html">Cómo Funciona</a></li>
+                    <li><a href="seguridad.html">Seguridad</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="section-title">Contáctanos</h1>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>WhatsApp</h3>
+                    <p>La forma más rápida de comunicarte con nosotros para consultas y transacciones.</p>
+                    <p>+58 412-XXX-XXXX</p> <a href="https://wa.me/58412XXXXXXXX" target="_blank">Enviar WhatsApp</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Telegram</h3>
+                    <p>Conéctate con nosotros en Telegram para soporte o asistencia.</p>
+                    <p>@TuUsuarioTelegramJP</p> <a href="https://t.me/TuUsuarioTelegramJP" target="_blank">Enviar Telegram</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Correo Electrónico</h3>
+                    <p>Envíanos un correo para consultas más detalladas o soporte general.</p>
+                    <p>info@cambiosjp.com</p> <a href="mailto:info@cambiosjp.com">Enviar Correo</a>
+                </div>
+            </div>
+            
+            <div class="content-block" style="margin-top: 50px;">
+                <h3>Horario de Atención</h3>
+                <p>Estamos disponibles para atenderte de **lunes a viernes**, de **8:00 AM a 6:00 PM (hora de Venezuela)**.</p>
+                <p>Los fines de semana y feriados nacionales, la atención puede ser limitada o nula.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CambiosJP. Todos los derechos reservados.</p>
+            <nav>
+                <ul>
+                    <li><a href="terminos_condiciones.html">Términos y Condiciones</a></li>
+                    <li><a href="politica_privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

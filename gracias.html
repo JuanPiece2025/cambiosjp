@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por tu compra! - CambiosJP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Tus variables CSS y estilos base existentes */
+        :root {
+            --primary-color: #007bff; /* Azul vibrante */
+            --secondary-color: #6c757d; /* Gris para textos secundarios */
+            --accent-color: #28a745; /* Verde para acciones positivas */
+            --background-light: #f8f9fa; /* Fondo claro */
+            --text-dark: #343a40; /* Texto oscuro */
+            --border-color: #dee2e6; /* Borde suave */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la ventana */
+            display: flex;
+            flex-direction: column; /* Organiza el contenido en columna: header, main, footer */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            flex-shrink: 0; /* Evita que el header se encoja */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex; /* Usa flexbox para alinear los elementos de la navegación */
+            gap: 30px; /* Espacio entre los elementos del menú */
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Content Styling for "Gracias" page */
+        .main-content-wrapper {
+            flex-grow: 1; /* Permite que este div ocupe todo el espacio disponible */
+            display: flex;
+            align-items: center; /* Centra el contenido verticalmente */
+            justify-content: center; /* Centra el contenido horizontalmente */
+            padding: 40px 20px; /* Espaciado alrededor del contenido */
+            text-align: center; /* Centra el texto */
+        }
+
+        .thank-you-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            width: 90%;
+            max-width: 700px; /* Ancho máximo para la tarjeta de agradecimiento */
+            margin: auto; /* Centra la tarjeta */
+        }
+
+        .thank-you-card h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .thank-you-card p {
+            font-size: 1.1em;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .thank-you-card p.important {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+            flex-shrink: 0; /* Evita que el footer se encoja */
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        footer nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer nav ul li a {
+            color: #ffffff;
+            font-weight: 400;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            header nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            .thank-you-card {
+                padding: 30px;
+                width: 95%;
+            }
+            .thank-you-card h1 {
+                font-size: 2em;
+            }
+            .thank-you-card p {
+                font-size: 1em;
+            }
+            footer nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">CambiosJP</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#como-funciona">Cómo Funciona</a></li>
+                    <li><a href="index.html#seguridad">Seguridad</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper">
+        <div class="container">
+            <div class="thank-you-card">
+                <h1>¡Gracias por tu compra en CambiosJP!</h1>
+                <p>Tu solicitud ha sido recibida con éxito.</p>
+                <p class="important">
+                    Nuestro equipo se pondrá en contacto contigo para confirmarte los detalles en un plazo máximo de **24 horas**.
+                </p>
+                <p>
+                    De no ser así, puedes apelar a través de nuestros canales de contacto.
+                </p>
+                <p>Agradecemos tu confianza.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CambiosJP. Todos los derechos reservados.</p>
+            <nav>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

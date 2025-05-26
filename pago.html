@@ -7,9 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Your existing custom CSS variables and base styles */
+        /* Tus variables CSS y estilos base existentes */
         :root {
             --primary-color: #007bff; /* Azul vibrante */
             --secondary-color: #6c757d; /* Gris para textos secundarios */
@@ -65,8 +64,8 @@
 
         header nav ul {
             list-style: none;
-            display: flex; /* Use flexbox for header nav to ensure proper spacing */
-            gap: 30px; /* Space between nav items */
+            display: flex;
+            gap: 30px;
         }
 
         header nav ul li a {
@@ -82,58 +81,33 @@
 
         /* Main Content Styling (for the form) */
         .main-content-wrapper {
-            flex-grow: 1; /* Allows the main content to take up available space */
+            flex-grow: 1;
             display: flex;
-            align-items: center; /* Centers content vertically */
-            justify-content: center; /* Centers content horizontally */
-            padding: 40px 0; /* Add some padding around the form */
+            align-items: center; /* Centra el contenido verticalmente */
+            justify-content: center; /* Centra el contenido horizontalmente */
+            padding: 40px 0; /* Espaciado alrededor del formulario */
         }
 
-        /* Form Specific Styles (Tailwind overrides and blending) */
-        .bg-gray-100 { /* This is the background for the whole page from Tailwind, overridden by body background */
-            background-color: var(--background-light);
-        }
-
-        .bg-white { /* The form container background */
+        /* Contenedor del formulario Tally */
+        .tally-form-container {
             background-color: #ffffff;
+            padding: 30px; /* Ajustado para dar más espacio alrededor del iframe */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            width: 90%;
+            max-width: 600px; /* Puedes ajustar este ancho máximo si tu formulario de Tally es más grande o pequeño */
+            margin: auto; /* Centra el contenedor del formulario */
         }
 
-        .text-gray-700 { /* Heading text */
-            color: var(--primary-color); /* Use primary color for main headings */
-        }
-
-        .text-gray-400 { /* Paragraph text */
-            color: var(--secondary-color);
-        }
-
-        .text-gray-600 { /* Label text */
-            color: var(--text-dark);
-        }
-
-        .border-gray-300 { /* Input borders */
-            border-color: var(--border-color);
-        }
-
-        .focus\:border-indigo-300:focus { /* Input focus border */
-            border-color: var(--primary-color);
-        }
-
-        .focus\:ring-indigo-100:focus { /* Input focus ring */
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Soft primary color ring */
-        }
-
-        .bg-indigo-500 { /* Submit button background */
-            background-color: var(--accent-color);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .bg-indigo-500:hover {
-            background-color: #218838; /* Darker accent color */
-            transform: translateY(-2px);
-        }
-        
-        .focus\:bg-indigo-600:focus { /* Submit button focus background */
-            background-color: #218838; /* Darker accent color on focus */
+        /* Estilos específicos para el iframe de Tally */
+        .tally-form-container iframe {
+            width: 100%;
+            height: auto; /* La altura se ajustará dinámicamente con el script de Tally */
+            min-height: 400px; /* Altura mínima para que no se vea vacío al cargar */
+            border: none;
+            margin: 0;
+            padding: 0;
+            display: block; /* Elimina espacio extra debajo del iframe */
         }
 
         /* Footer Styles */
@@ -149,16 +123,16 @@
         footer .container {
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centers content horizontally */
+            align-items: center;
             gap: 15px;
         }
 
         footer nav ul {
             list-style: none;
-            display: flex; /* Use flexbox for footer nav to ensure centering */
-            gap: 15px; /* Space between nav items */
-            padding: 0; /* Remove default padding */
-            margin: 0; /* Remove default margin */
+            display: flex;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
         }
 
         footer nav ul li a {
@@ -169,7 +143,7 @@
         }
 
         footer nav ul li a:hover {
-            color: var(--primary-color); /* Lighten color on hover */
+            color: var(--primary-color);
         }
 
         /* Responsive Design */
@@ -183,16 +157,9 @@
                 gap: 10px;
                 align-items: center;
             }
-            .max-w-xl {
-                max-width: 95%; /* Adjust form width on small screens */
-            }
-            .flex.mb-6.space-x-4 {
-                flex-direction: column;
-                space-x-4: 0; /* Reset space-x on column layout */
-                gap: 20px; /* Add vertical gap */
-            }
-            .flex.mb-6.space-x-4 > div {
-                width: 100%; /* Make input fields full width */
+            .tally-form-container {
+                padding: 20px;
+                width: 95%; /* Ajusta el ancho en pantallas pequeñas */
             }
             footer nav ul {
                 flex-direction: column;
@@ -217,73 +184,13 @@
 
     <div class="main-content-wrapper">
         <div class="container">
-            <div class="max-w-xl mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
-                <div class="text-center">
-                    <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
-                        Formulario de Pago
-                    </h1>
-                    <p class="text-gray-400 dark:text-gray-400">
-                        Por favor, completa los detalles de tu pago para continuar con la transacción.
-                    </p>
-                </div>
-                <div class="m-7">
-                    <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="access_key" value="29a2b4d9-9c31-4687-9db8-fb4f4f8a9458" />
-                        <input type="hidden" name="subject" value="Nuevo Pago Recibido - CambiosJP" />
-                        <input type="checkbox" name="botcheck" id="" style="display: none;" />
-                        <input type="hidden" name="redirect" value="https://web3forms.com/success">
-
-                        <div class="flex mb-6 space-x-4">
-                            <div class="w-full md:w-1/2">
-                                <label for="first_name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Nombre del Titular</label>
-                                <input type="text" name="name" id="first_name" placeholder="Juan" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                            </div>
-                            <div class="w-full md:w-1/2">
-                                <label for="lname" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Apellido del Titular</label>
-                                <input type="text" name="last_name" id="lname" placeholder="Pérez" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                            </div>
-                        </div>
-
-                        <div class="flex mb-6 space-x-4">
-                            <div class="w-full md:w-1/2">
-                                <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Correo Electrónico</label>
-                                <input type="email" name="email" id="email" placeholder="tu@ejemplo.com" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                            </div>
-
-                            <div class="w-full md:w-1/2">
-                                <label for="amount" class="block text-sm mb-2 text-gray-600 dark:text-gray-400">Monto a Enviar (USD)</label>
-                                <input type="number" name="amount" id="amount" placeholder="Ej: 50.00" step="0.01" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                            </div>
-                        </div>
-
-                        <div class="mb-6">
-                            <label for="currency_to_recharge" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Moneda a Recargar</label>
-                            <select name="currency_to_recharge" id="currency_to_recharge" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
-                                <option value="">Selecciona una opción</option>
-                                <option value="zinli">Zinli</option>
-                                <option value="binance">Binance</option>
-                                <option value="paypal">PayPal</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-6">
-                            <label for="transaction_id" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">ID de Transacción / Referencia</label>
-                            <input type="text" name="transaction_id" id="transaction_id" placeholder="Copia aquí tu ID o referencia de la transacción" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                        </div>
-
-                        <div class="mb-6">
-                            <label for="proof_of_payment" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Comprobante de Pago (Captura/Foto)</label>
-                            <input type="file" id="proof_of_payment" name="proof_of_payment" accept="image/jpeg,image/png,application/pdf" required />
-                            <p class="text-xs text-gray-500 mt-1">Sube una captura de pantalla o foto clara de tu transacción.</p>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <button type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
-                                Confirmar Pago
-                            </button>
-                        </div>
-                    </form>
-                </div>
+            <div class="tally-form-container">
+                <iframe data-tally-src="https://tally.so/embed/wo160V?alignLeft=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="Formulario de pago"></iframe>
+                <script>
+                    var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};
+                    if("undefined"!=typeof Tally)v();
+                    else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+                </script>
             </div>
         </div>
     </div>

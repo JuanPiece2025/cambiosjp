@@ -136,14 +136,14 @@
             font-weight: 600;
         }
 
-        .features-grid { /* Eliminada la referencia a .platforms-grid aquí */
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 30px;
         }
 
-        .feature-item { /* Eliminada la referencia a .platform-item aquí */
+        .feature-item {
             background-color: #ffffff;
             padding: 30px;
             border-radius: 10px;
@@ -152,21 +152,19 @@
             transition: transform 0.3s ease;
         }
 
-        .feature-item:hover { /* Eliminada la referencia a .platform-item:hover aquí */
+        .feature-item:hover {
             transform: translateY(-5px);
         }
 
-        .feature-item h3 { /* Eliminada la referencia a .platform-item h3 aquí */
+        .feature-item h3 {
             font-size: 1.5em;
             margin-bottom: 15px;
             color: var(--primary-color);
         }
 
-        .feature-item p { /* Eliminada la referencia a .platform-item p aquí */
+        .feature-item p {
             color: var(--secondary-color);
         }
-
-        /* Eliminados los estilos específicos para .platform-item img y .platform-item:hover img */
 
         .call-to-action {
             background-color: var(--primary-color);
@@ -345,7 +343,7 @@
                 font-size: 1.8em;
             }
 
-            .features-grid { /* Eliminada la referencia a .platforms-grid aquí */
+            .features-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -367,12 +365,12 @@
 <body>
     <header>
         <div class="container">
-            <a href="#" class="logo">CambiosJP</a>
+            <a href="index.html" class="logo">CambiosJP</a>
             <nav>
                 <ul>
-                    <li><a href="#como-funciona">Cómo Funciona</a></li>
-                    <li><a href="#seguridad">Seguridad</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="como_funciona.html">Cómo Funciona</a></li>
+                    <li><a href="seguridad.html">Seguridad</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -387,8 +385,7 @@
         </div>
     </section>
 
-    <section id="como-funciona" class="section-padding">
-        <div class="container text-center">
+    <section id="como-funciona-section" class="section-padding"> <div class="container text-center">
             <h2 class="section-title">¿Cómo funciona CambiosJP?</h2>
             <div class="features-grid">
                 <div class="feature-item">
@@ -407,21 +404,19 @@
         </div>
     </section>
 
-    <section id="seguridad" class="call-to-action">
-        <div class="container">
+    <section id="seguridad-section" class="call-to-action"> <div class="container">
             <h2>Tu Seguridad es Nuestra Prioridad</h2>
             <p>En CambiosJP, utilizamos los más altos estándares de seguridad para proteger tus transacciones y tu información personal. Opera con total confianza.</p>
         </div>
     </section>
 
-    <footer id="contacto">
-        <div class="container">
+    <footer id="contacto-section"> <div class="container">
             <p>&copy; 2025 CambiosJP. Todos los derechos reservados.</p>
             <nav>
                 <ul>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="terminos_condiciones.html">Términos y Condiciones</a></li>
+                    <li><a href="politica_privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
         </div>

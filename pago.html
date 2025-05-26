@@ -91,23 +91,24 @@
         /* Contenedor del formulario Tally */
         .tally-form-container {
             background-color: #ffffff;
-            padding: 30px; /* Ajustado para dar más espacio alrededor del iframe */
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             width: 90%;
-            max-width: 600px; /* Puedes ajustar este ancho máximo si tu formulario de Tally es más grande o pequeño */
-            margin: auto; /* Centra el contenedor del formulario */
+            /* AUMENTADO EL ANCHO MÁXIMO AQUÍ */
+            max-width: 800px; /* Cambiado de 600px a 800px para que se vea más "gordo" */
+            margin: auto;
         }
 
         /* Estilos específicos para el iframe de Tally */
         .tally-form-container iframe {
             width: 100%;
-            height: auto; /* La altura se ajustará dinámicamente con el script de Tally */
-            min-height: 400px; /* Altura mínima para que no se vea vacío al cargar */
+            height: auto;
+            min-height: 400px; /* Mantén esta altura mínima */
             border: none;
             margin: 0;
             padding: 0;
-            display: block; /* Elimina espacio extra debajo del iframe */
+            display: block;
         }
 
         /* Footer Styles */
@@ -159,7 +160,8 @@
             }
             .tally-form-container {
                 padding: 20px;
-                width: 95%; /* Ajusta el ancho en pantallas pequeñas */
+                width: 95%; /* Asegura que siga siendo responsivo en pantallas pequeñas */
+                max-width: 95%; /* Ajusta el max-width para móviles también */
             }
             footer nav ul {
                 flex-direction: column;

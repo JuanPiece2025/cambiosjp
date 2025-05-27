@@ -12,10 +12,12 @@
         :root {
             --primary-color: #007bff; /* Azul vibrante */
             --secondary-color: #6c757d; /* Gris para textos secundarios */
-            --accent-color: #28a745; /* Verde para acciones positivas */
+            --accent-color: #28a745; /* Verde para acciones positivas - ¡Usaremos este para el dólar! */
             --background-light: #f8f9fa; /* Fondo claro */
             --text-dark: #343a40; /* Texto oscuro */
             --border-color: #dee2e6; /* Borde suave */
+            --dark-bar-background: #212529; /* Fondo oscuro para la barra del dólar */
+            /* --dollar-value-color: #ffc107; -- Eliminada, ahora usaremos --accent-color */
         }
 
         * {
@@ -29,7 +31,29 @@
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--background-light);
+            margin-top: 0; 
         }
+
+        /* ESTILOS PARA LA BARRA SUPERIOR DEL DÓLAR */
+        .top-dollar-bar {
+            background-color: var(--dark-bar-background); 
+            color: #ffffff;
+            text-align: center;
+            padding: 8px 0;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 0.95em;
+            font-weight: 500;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .top-dollar-bar strong {
+            color: var(--accent-color); /* ¡Ahora el valor del dólar es verde! */
+            font-size: 1.1em;
+        }
+        /* FIN DE ESTILOS PARA LA BARRA */
+
 
         .container {
             max-width: 1200px;
@@ -42,6 +66,8 @@
             padding: 20px 0;
             border-bottom: 1px solid var(--border-color);
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 500;
         }
 
         header .container {
@@ -50,19 +76,17 @@
             align-items: center;
         }
 
-        /* Estilo para el contenedor del logo (ahora una imagen) */
         .logo {
-            text-decoration: none; /* Quita el subrayado del enlace */
-            display: flex; /* Permite controlar la alineación de la imagen dentro */
-            align-items: center; /* Centra verticalmente la imagen */
-            height: 40px; /* Establece una altura fija para el contenedor del logo */
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 40px;
         }
 
         .logo img {
-            max-height: 100%; /* La imagen ocupará el 100% de la altura del contenedor del logo */
-            width: auto; /* Mantiene la proporción de la imagen */
+            max-height: 100%;
+            width: auto;
         }
-
 
         nav ul {
             list-style: none;
@@ -89,9 +113,9 @@
             color: #ffffff;
             padding: 80px 0;
             text-align: center;
-            border-radius: 0 0 15px 15px; /* Esquinas redondeadas abajo */
+            border-radius: 0 0 15px 15px;
             position: relative;
-            z-index: 1; /* Aseguramos que el héroe esté por debajo del modal */
+            z-index: 1;
         }
 
         .hero h1 {
@@ -121,11 +145,11 @@
             cursor: pointer;
             border: none;
             font-family: 'Poppins', sans-serif;
-            font-size: 1.1em; /* Ajuste para el botón principal */
+            font-size: 1.1em;
         }
 
         .btn:hover {
-            background-color: #218838; /* Verde más oscuro */
+            background-color: #218838;
             transform: translateY(-2px);
         }
 
@@ -179,7 +203,7 @@
             color: #ffffff;
             padding: 80px 0;
             text-align: center;
-            border-radius: 15px 15px 0 0; /* Esquinas redondeadas arriba */
+            border-radius: 15px 15px 0 0;
             margin-top: 60px;
         }
 
@@ -228,13 +252,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente oscuro */
+            background-color: rgba(0, 0, 0, 0.6);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999; /* Asegura que esté por encima de todo */
-            opacity: 0; /* Oculto por defecto */
-            visibility: hidden; /* Oculto por defecto */
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
@@ -250,14 +274,14 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
             text-align: center;
             width: 90%;
-            max-width: 380px; /* Reduced max-width of the modal itself */
-            transform: translateY(-50px); /* Para la animación de entrada */
+            max-width: 380px;
+            transform: translateY(-50px);
             transition: transform 0.3s ease;
-            position: relative; /* Para el botón de cerrar */
+            position: relative;
         }
 
         .modal-overlay.active .modal-content {
-            transform: translateY(0); /* Posición final al abrir */
+            transform: translateY(0);
         }
 
         .modal-content h2 {
@@ -268,12 +292,12 @@
         }
 
         .modal-options button {
-            display: flex; /* Usamos flexbox para alinear imagen y texto */
-            flex-direction: column; /* Cambiado a columna para apilar imagen y texto */
-            align-items: center; /* Centra horizontalmente en el eje transversal */
-            justify-content: center; /* Centra verticalmente en el eje principal */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            padding: 10px; /* Slightly reduced overall padding */
+            padding: 10px;
             margin-bottom: 10px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -284,7 +308,7 @@
             cursor: pointer;
             transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
             font-family: 'Poppins', sans-serif;
-            gap: 5px; /* Reduced gap between image and text */
+            gap: 5px;
         }
 
         .modal-options button:last-child {
@@ -292,24 +316,24 @@
         }
 
         .modal-options button img {
-            width: 100%; /* Las imágenes ocuparán el 100% del ancho del botón */
-            max-width: 200px; /* Significantly reduced max-width for the banner image */
-            height: 60px; /* Set a fixed height for a more consistent banner look */
-            object-fit: contain; /* Ensure the image fits within the defined dimensions */
-            filter: grayscale(0%); /* Quita el filtro de escala de grises inicial */
+            width: 100%;
+            max-width: 200px;
+            height: 60px;
+            object-fit: contain;
+            filter: grayscale(0%);
             transition: transform 0.3s ease;
         }
 
         .modal-options button:hover {
             background-color: var(--primary-color);
-            color: white; /* Cambiar color del texto al pasar el ratón */
+            color: white;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
-            border-color: var(--primary-color); /* Cambiar borde al hover */
+            border-color: var(--primary-color);
         }
         
         .modal-options button:hover img {
-            transform: scale(1.02); /* Subtle zoom on hover */
+            transform: scale(1.02);
         }
 
 
@@ -332,11 +356,11 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .logo {
-                font-size: 1.5em; /* Este estilo ahora afecta al contenedor del logo, no al texto */
+                font-size: 1.5em;
             }
 
             nav {
-                display: none; /* Simplificado para móviles, se recomienda un menú hamburguesa real */
+                display: none;
             }
 
             .hero h1 {
@@ -361,16 +385,21 @@
 
             .modal-content {
                 padding: 20px;
-                max-width: 90%; /* Ensure it's responsive on smaller screens */
+                max-width: 90%;
             }
             .modal-options button img {
-                max-width: 150px; /* Adjust banner size for smaller screens if needed */
+                max-width: 150px;
                 height: 50px;
             }
         }
     </style>
 </head>
 <body>
+
+    <div class="top-dollar-bar">
+        $1.00 USD X <strong>135.20 VES</strong>
+    </div>
+
     <header>
         <div class="container">
             <a href="index.html" class="logo">
@@ -457,31 +486,26 @@
     </div>
 
     <script>
-        // Obtener referencias a los elementos HTML
         const startTransactionBtn = document.getElementById('startTransactionBtn');
         const transactionModal = document.getElementById('transactionModal');
         const closeModalBtn = document.getElementById('closeModalBtn');
 
-        // Evento para abrir el modal cuando se hace clic en el botón "Empezar Transacción"
-        if (startTransactionBtn) { // Asegurarse de que el botón exista antes de añadir el listener
+        if (startTransactionBtn) {
             startTransactionBtn.addEventListener('click', () => {
-                transactionModal.classList.add('active'); // Añade la clase 'active' para mostrar el modal
-                document.body.style.overflow = 'hidden'; // Evita el scroll en el body cuando el modal está abierto
+                transactionModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
         }
 
-        // Evento para cerrar el modal cuando se hace clic en el botón de cerrar (X)
-        if (closeModalBtn) { // Asegurarse de que el botón exista
+        if (closeModalBtn) {
             closeModalBtn.addEventListener('click', () => {
-                transactionModal.classList.remove('active'); // Remueve la clase 'active' para ocultar el modal
-                document.body.style.overflow = ''; // Restaura el scroll del body
+                transactionModal.classList.remove('active');
+                document.body.style.overflow = '';
             });
         }
 
-        // Evento para cerrar el modal si se hace clic fuera del contenido del modal
-        if (transactionModal) { // Asegurarse de que el modal exista
+        if (transactionModal) {
             transactionModal.addEventListener('click', (event) => {
-                // Si el clic ocurrió directamente sobre el overlay (no dentro del modal-content)
                 if (event.target === transactionModal) {
                     transactionModal.classList.remove('active');
                     document.body.style.overflow = '';
@@ -489,7 +513,6 @@
             });
         }
 
-        // Opcional: Cerrar el modal con la tecla Escape
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && transactionModal && transactionModal.classList.contains('active')) {
                 transactionModal.classList.remove('active');

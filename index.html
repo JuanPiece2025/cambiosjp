@@ -10,6 +10,8 @@
     <link rel="icon" href="fotos/favicom.jpg" type="image/jpg">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.min.js"></script>
+
     <style>
         :root {
             --primary-color: #007bff; /* Azul vibrante */
@@ -588,6 +590,7 @@
             </div>
         </div>
     </section>
+
     <section id="seguridad-section" class="call-to-action">
         <div class="container">
             <h2>Tu Seguridad es Nuestra Prioridad</h2>
@@ -629,12 +632,10 @@
         </div>
     </div>
 
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.min.js"></script>
-
     <script>
-        // Tus datos de Auth0 (¡OBTENIDOS DE TU CAPTURA DE PANTALLA!)
-        const AUTH0_DOMAIN = "dev-vi7mfdkqvfdomvx4.us.auth0.com"; //
-        const AUTH0_CLIENT_ID = "7eDpyRWcZNrHm8XH1j8JJMk5YzWxGA0Dv";     //
+        // Tus datos de Auth0 (¡Estos son los que me proporcionaste!)
+        const AUTH0_DOMAIN = "dev-vi7mfdkqvfdonvx4.us.auth0.com";
+        const AUTH0_CLIENT_ID = "VyMd7bbEJgjJVz09iMBYY0VmGKxU1ESc";
 
         let auth0Client = null; // Variable para almacenar la instancia del cliente Auth0
 
@@ -645,25 +646,29 @@
             const loginButton = document.getElementById('login');
             const logoutButton = document.getElementById('logout');
             const userGreeting = document.getElementById('user-greeting');
-            const authButtonsDiv = document.querySelector('.auth-buttons'); // Nuevo: el div que contiene los botones
+            const authButtonsDiv = document.querySelector('.auth-buttons'); // El div que contiene los botones
 
             if (isAuthenticated) {
                 // Si el usuario está autenticado
                 premiumContent.style.display = 'block'; // Mostrar contenido premium
                 loginButton.style.display = 'none';      // Ocultar botón de login
                 logoutButton.style.display = 'inline-block'; // Mostrar botón de logout
-                authButtonsDiv.style.display = 'flex'; // Asegurarse de que el contenedor de botones esté visible
+                if (authButtonsDiv) { // Asegurarse de que el contenedor de botones esté visible
+                    authButtonsDiv.style.display = 'flex'; 
+                }
 
                 // Obtener información del usuario para el saludo
                 const user = await auth0Client.getUser();
-                userGreeting.textContent = `Hola, ${user.name || user.email}`; // Muestra el nombre o email
+                userGreeting.textContent = `Hola, ${user.name || user.email}!`; // Muestra el nombre o email
             } else {
                 // Si el usuario NO está autenticado
-                premiumContent.style.display = 'none';   // Ocultar contenido premium
+                premiumContent.style.display = 'none';    // Ocultar contenido premium
                 loginButton.style.display = 'inline-block'; // Mostrar botón de login
-                logoutButton.style.display = 'none';     // Ocultar botón de logout
+                logoutButton.style.display = 'none';      // Ocultar botón de logout
                 userGreeting.textContent = 'Hola, invitado'; // Saludo genérico
-                authButtonsDiv.style.display = 'flex'; // Asegurarse de que el contenedor de botones esté visible
+                if (authButtonsDiv) { // Asegurarse de que el contenedor de botones esté visible
+                    authButtonsDiv.style.display = 'flex'; 
+                }
             }
         };
 
@@ -690,6 +695,9 @@
             } catch (e) {
                 console.error("Error al inicializar Auth0 o procesar callback:", e);
                 // Aquí puedes mostrar un mensaje de error al usuario si lo deseas
+                document.getElementById('user-greeting').textContent = "Error al cargar autenticación.";
+                document.getElementById('login').style.display = 'inline-block'; // Asegurar que el botón de login esté visible en caso de error
+                document.getElementById('logout').style.display = 'none';
             }
         };
 

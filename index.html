@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="fotos/favicom.jpg" type="image/jpg">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <style>
         :root {
             --primary-color: #007bff; /* Azul vibrante */
@@ -17,7 +19,6 @@
             --text-dark: #343a40; /* Texto oscuro */
             --border-color: #dee2e6; /* Borde suave */
             --dark-bar-background: #212529; /* Fondo oscuro para la barra del dólar */
-            /* --dollar-value-color: #ffc107; -- Eliminada, ahora usaremos --accent-color */
         }
 
         * {
@@ -31,12 +32,12 @@
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--background-light);
-            margin-top: 0; 
+            margin-top: 0;
         }
 
         /* ESTILOS PARA LA BARRA SUPERIOR DEL DÓLAR */
         .top-dollar-bar {
-            background-color: var(--dark-bar-background); 
+            background-color: var(--dark-bar-background);
             color: #ffffff;
             text-align: center;
             padding: 8px 0;
@@ -53,7 +54,6 @@
             font-size: 1.1em;
         }
         /* FIN DE ESTILOS PARA LA BARRA */
-
 
         .container {
             max-width: 1200px;
@@ -74,6 +74,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
         }
 
         .logo {
@@ -107,6 +108,59 @@
         nav ul li a:hover {
             color: var(--primary-color);
         }
+
+        /* --- Estilos para la sección de usuario y botones de Auth0 --- */
+        .user-auth-section {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Espacio entre el icono y los botones */
+            margin-left: auto; /* Empuja esta sección a la derecha */
+        }
+
+        .user-auth-section .user-icon {
+            font-size: 30px; /* Tamaño del icono de usuario */
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .user-auth-section .user-icon:hover {
+            color: var(--accent-color);
+        }
+        
+        .user-auth-section .auth-buttons button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+            white-space: nowrap; /* Evita que el texto del botón se rompa */
+        }
+
+        .user-auth-section .auth-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        .user-auth-section #logout {
+            background-color: var(--secondary-color); /* Un color diferente para logout */
+        }
+
+        .user-auth-section #logout:hover {
+            background-color: #5a6268;
+        }
+
+        #user-greeting {
+            font-size: 1em;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-left: 10px; /* Espacio entre el icono y el saludo */
+            white-space: nowrap; /* Evita que el saludo se rompa */
+        }
+
+        /* --- Fin de Estilos para Auth0 --- */
 
         .hero {
             background: linear-gradient(to right, var(--primary-color), #6bb1ff);
@@ -336,7 +390,6 @@
             transform: scale(1.02);
         }
 
-
         .modal-close-btn {
             position: absolute;
             top: 15px;
@@ -353,14 +406,69 @@
             color: var(--text-dark);
         }
 
+        /* --- Estilos para Contenido Premium --- */
+        #premium-content {
+            display: none; /* Oculto por defecto, se muestra con JS si está logueado */
+            background-color: #e0fafa;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 40px;
+            text-align: left;
+            color: #2a6158;
+        }
+
+        #premium-content h2 {
+            color: #1a4d45;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        #premium-content ul {
+            list-style: disc;
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        #premium-content li {
+            margin-bottom: 10px;
+        }
+        /* --- Fin de Estilos para Contenido Premium --- */
+
+
         /* Responsive Design */
+        @media (max-width: 900px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .logo {
+                margin-bottom: 15px;
+            }
+            nav ul {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+            nav ul li {
+                margin: 0 10px;
+                display: block; /* Cada elemento de la nav en su propia línea si es necesario */
+                padding: 5px 0;
+            }
+            .user-auth-section {
+                width: 100%;
+                justify-content: center;
+                margin-left: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .logo {
                 font-size: 1.5em;
             }
 
             nav {
-                display: none;
+                display: none; /* Ocultar la navegación principal en móviles, puedes añadir un menú hamburguesa */
             }
 
             .hero h1 {
@@ -391,6 +499,19 @@
                 max-width: 150px;
                 height: 50px;
             }
+            .user-auth-section {
+                flex-direction: column; /* Icono y botones uno debajo del otro */
+                gap: 10px;
+            }
+            .user-auth-section .auth-buttons {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            .user-auth-section .auth-buttons button {
+                width: 100%;
+                margin: 5px 0;
+            }
         }
     </style>
 </head>
@@ -412,6 +533,14 @@
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
+            <div class="user-auth-section">
+                <span class="material-icons user-icon">account_circle</span>
+                <span id="user-greeting">Hola, invitado</span>
+                <div class="auth-buttons">
+                    <button id="login">Iniciar Sesión / Registrarse</button>
+                    <button id="logout" style="display: none;">Cerrar Sesión</button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -424,7 +553,7 @@
         </div>
     </section>
 
-    <section id="como-funciona-section" class="section-padding"> 
+    <section id="como-funciona-section" class="section-padding">
         <div class="container text-center">
             <h2 class="section-title">¿Cómo funciona CambiosJP?</h2>
             <div class="features-grid">
@@ -444,14 +573,29 @@
         </div>
     </section>
 
-    <section id="seguridad-section" class="call-to-action"> 
+    <section id="premium-access-section" class="section-padding" style="background-color: var(--background-light);">
+        <div class="container">
+            <div id="premium-content">
+                <h2>🎉 Área de Miembros Exclusiva 🎉</h2>
+                <p>¡Bienvenido de nuevo! Como miembro registrado, tienes acceso a estos recursos adicionales:</p>
+                <ul>
+                    <li>**Herramienta de Cáculo Avanzado:** Estima tus cambios con tasas en tiempo real.</li>
+                    <li>**Alertas de Tasas Personalizadas:** Recibe notificaciones cuando tu divisa alcance un valor deseado.</li>
+                    <li>**Soporte Prioritario:** Acceso directo a nuestro equipo de soporte para miembros.</li>
+                    <li>**Material Educativo Exclusivo:** Guías y webinars sobre optimización de intercambios.</li>
+                </ul>
+                <p>¡Explora y maximiza tus transacciones!</p>
+            </div>
+        </div>
+    </section>
+    <section id="seguridad-section" class="call-to-action">
         <div class="container">
             <h2>Tu Seguridad es Nuestra Prioridad</h2>
             <p>En CambiosJP, utilizamos los más altos estándares de seguridad para proteger tus transacciones y tu información personal. Opera con total confianza.</p>
         </div>
     </section>
 
-    <footer id="contacto-section"> 
+    <footer id="contacto-section">
         <div class="container">
             <p>&copy; 2025 CambiosJP. Todos los derechos reservados.</p>
             <nav>
@@ -466,7 +610,7 @@
 
     <div id="transactionModal" class="modal-overlay">
         <div class="modal-content">
-            <button class="modal-close-btn" id="closeModalBtn">&times;</button> 
+            <button class="modal-close-btn" id="closeModalBtn">&times;</button>
             <h2>Elige tu método de pago</h2>
             <div class="modal-options">
                 <button onclick="location.href='pago.html'">
@@ -485,7 +629,98 @@
         </div>
     </div>
 
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.min.js"></script>
+
     <script>
+        // Tus datos de Auth0 (¡OBTENIDOS DE TU CAPTURA DE PANTALLA!)
+        const AUTH0_DOMAIN = "dev-vi7mfdkqvfdomvx4.us.auth0.com";
+        const AUTH0_CLIENT_ID = "7eDpyRWcZNrHm8XH1j8JJMk5YzWxGA0Dv";
+
+        let auth0Client = null; // Variable para almacenar la instancia del cliente Auth0
+
+        // Función para actualizar la interfaz de usuario según el estado de autenticación
+        const updateUI = async () => {
+            const isAuthenticated = await auth0Client.isAuthenticated();
+            const premiumContent = document.getElementById('premium-content');
+            const loginButton = document.getElementById('login');
+            const logoutButton = document.getElementById('logout');
+            const userGreeting = document.getElementById('user-greeting');
+            const authButtonsDiv = document.querySelector('.auth-buttons'); // Nuevo: el div que contiene los botones
+
+            if (isAuthenticated) {
+                // Si el usuario está autenticado
+                premiumContent.style.display = 'block'; // Mostrar contenido premium
+                loginButton.style.display = 'none';      // Ocultar botón de login
+                logoutButton.style.display = 'inline-block'; // Mostrar botón de logout
+                authButtonsDiv.style.display = 'flex'; // Asegurarse de que el contenedor de botones esté visible
+
+                // Obtener información del usuario para el saludo
+                const user = await auth0Client.getUser();
+                userGreeting.textContent = `Hola, ${user.name || user.email}`; // Muestra el nombre o email
+            } else {
+                // Si el usuario NO está autenticado
+                premiumContent.style.display = 'none';   // Ocultar contenido premium
+                loginButton.style.display = 'inline-block'; // Mostrar botón de login
+                logoutButton.style.display = 'none';     // Ocultar botón de logout
+                userGreeting.textContent = 'Hola, invitado'; // Saludo genérico
+                authButtonsDiv.style.display = 'flex'; // Asegurarse de que el contenedor de botones esté visible
+            }
+        };
+
+        // Función para configurar e inicializar el cliente Auth0
+        const configureAuth0 = async () => {
+            try {
+                auth0Client = await auth0_spa_js.createAuth0Client({
+                    domain: AUTH0_DOMAIN,
+                    clientId: AUTH0_CLIENT_ID,
+                    authorizationParams: {
+                        redirect_uri: window.location.origin
+                        // scope: "openid profile email" // Puedes descomentar si necesitas más datos del usuario
+                    }
+                });
+
+                // Manejar la redirección después de la autenticación
+                if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
+                    await auth0Client.handleRedirectCallback();
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+
+                // Actualizar la UI una vez que Auth0 esté configurado
+                updateUI();
+            } catch (e) {
+                console.error("Error al inicializar Auth0 o procesar callback:", e);
+                // Aquí puedes mostrar un mensaje de error al usuario si lo deseas
+            }
+        };
+
+        // Event listener para cuando el DOM esté completamente cargado
+        document.addEventListener('DOMContentLoaded', configureAuth0);
+
+        // Event listener para el botón de inicio de sesión
+        document.getElementById('login').addEventListener('click', async () => {
+            try {
+                await auth0Client.loginWithRedirect();
+            } catch (e) {
+                console.error("Error al intentar loginWithRedirect:", e);
+                // Aquí puedes mostrar un mensaje de error si la redirección falla
+            }
+        });
+
+        // Event listener para el botón de cierre de sesión
+        document.getElementById('logout').addEventListener('click', async () => {
+            try {
+                await auth0Client.logout({
+                    logoutParams: {
+                        returnTo: window.location.origin
+                    }
+                });
+            } catch (e) {
+                console.error("Error al intentar logout:", e);
+                // Aquí puedes mostrar un mensaje de error si el logout falla
+            }
+        });
+
+        // --- Lógica existente para el modal "Empezar Transacción" ---
         const startTransactionBtn = document.getElementById('startTransactionBtn');
         const transactionModal = document.getElementById('transactionModal');
         const closeModalBtn = document.getElementById('closeModalBtn');
@@ -519,6 +754,8 @@
                 document.body.style.overflow = '';
             }
         });
+        // --- Fin de Lógica existente ---
     </script>
+
 </body>
 </html>
